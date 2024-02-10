@@ -1,5 +1,5 @@
-export class SignupUserDto{
-    name:String
-    emai:String
-    password:String
+export class SignupUserDto {
+  name: String;
+  emai: String;
+  password: String;
 }
