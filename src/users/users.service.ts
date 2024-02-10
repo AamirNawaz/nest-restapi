@@ -38,7 +38,15 @@ export class UsersService {
     } catch (error) {
         Logger.debug(error)
         throw new Error(error)
-    }
-    
+    } 
+  }
+
+  async getAllUsers():Promise<User[]>{
+    const users = this.userRepository.find();
+    return users;
+  }
+
+  async getSingleUser(id:Number):Promise<User>{
+    return this.userRepository.findOneBy({ id: id });
   }
 }
