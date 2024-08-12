@@ -8,6 +8,7 @@ import { UserGuard } from './guard/user.guard';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
+  // signup user
   @Post('signup')
   async signup(@Body() signupUserDto: SignupUserDto) {
     return this.userService.signup(signupUserDto);
@@ -20,13 +21,12 @@ export class UsersController {
 
   @UseGuards(UserGuard)
   @Get()
-  async getAllUsers(){
+  async getAllUsers() {
     return this.userService.getAllUsers();
   }
 
-  @Get(":id")
-  async getSingleUser(@Param('id')id :Number ){
+  @Get(':id')
+  async getSingleUser(@Param('id') id: Number) {
     return this.userService.getSingleUser(id);
   }
-
 }
